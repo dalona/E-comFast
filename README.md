@@ -1,4 +1,4 @@
-# Proyecto Final NodeJS - TypeScript
+# E-comFast
 
 ## Libreriás utilizadas
 
@@ -28,24 +28,36 @@ project-name/
 │ ├── controllers/
 │ │ ├── userController.ts
 │ │ └── productController.ts
-| | └── ...
+| | └── authController.ts
+| | └── orderController.ts
+| | 
 │ ├── models/
 │ │ ├── User.ts
 │ │ └── Product.ts
-| | └── ...
+| | └── cart.ts
+| | └── entities.ts
+| | └── index.ts
+| | └── order.ts
+| | └── permissions.ts
+| | └── product.ts
+| | └── productCart.ts
+| | └── role.ts
+| | └── user.ts
 │ ├── repositories/
 │ │ ├── UserRepository.ts
 │ │ └── ProductRepository.ts
-| | └── ...
+| | └── orderRepository.ts
 │ ├── routes/
 │ │ ├── Router.ts
 │ │ ├── UserRoutes.ts
 │ │ └── ProductRoutes.ts
-| | └── ...
+| | └── orderRoutes.ts
+| | └── index.ts
+| | └── authRoutes.ts
 │ ├── services/
 │ │ ├── UserService.ts
 │ │ └── ProductService.ts
-| | └── ...
+| | └── orderService.ts
 │ └── index.ts
 ├── node_modules/
 ├── package.json
@@ -67,9 +79,20 @@ project-name/
   - **index.ts**: Archivo principal de la aplicación.
 
 ## Novedades
-
-- **Inyección de dependencias**: Utilizamos tsyringe para inyectar dependencias en las clases de la aplicación. Recuerden en la clase pasada como hablamos de la inyección de dependencias y como nos ayuda a desacoplar las clases de la aplicación y no tener que instanciar las dependencias en los metodos de las clases.
-- **ORM con sequelize**: Utilizamos sequelize como ORM para interactuar con la base de datos MySQL. Sequelize es un ORM para Node.js que nos permite interactuar con la base de datos utilizando objetos en lugar de consultas SQL. Para obtener más información sobre Sequelize, pueden visitar el siguiente enlace: [Sequelize](../../ORM/sequelize.md) y [ORM](../../ORM/README.md).
-- **Decoradores de Sequelize**: Utilizamos decoradores de Sequelize para definir modelos, relaciones y validaciones en las clases de los modelos. Esto nos permite definir los modelos de la aplicación con clases de TypeScript y no con objetos JSON.
-- **CORS**: Implementamos CORS en la aplicación para permitir que los recursos de la API sean accesibles desde cualquier dominio. CORS es una política de seguridad que se aplica en los navegadores web para restringir las solicitudes HTTP que se pueden hacer desde un dominio a otro, para obtener más información sobre CORS, pueden visitar el siguiente enlace: [CORS](../../cors/README.md).
-- **JWT**: Implementamos JWT en la aplicación para autenticar a los usuarios y proteger las rutas de la API. JWT es un estándar abierto que define un método compacto y autónomo para transmitir de forma segura la información entre las partes como un objeto JSON. Para obtener más información sobre JWT, pueden visitar el siguiente enlace: [JWT](../../jwt/README.md).
+- Órdenes
+o Creación de órdenes
+o Actualización de órdenes
+o Eliminación de una orden
+o Obtención de órdenes
+o Obtener todas las órdenes realizadas por ID de usuario
+- Productos
+o Creación de productos
+o Actualización de productos y su stock
+o Eliminación de productos
+o Obtención de todos los productos
+o Obtener todos los productos por ID de orden
+- Usuarios
+o Creación de usuarios
+o Eliminación de usuarios
+o Actualización de usuarios
+o Obtención de todos los usuarios
