@@ -14,8 +14,8 @@ export default class UserController {
       const userService = container.resolve(UserService);
       const user = await userService.getUserById(parseInt(req.params.id));
       if(!user){
-        return res.status(404).json({message: 'User not found'});
-       }res.json(user);
+        return res.status(404).json({message: 'User not found'})};
+        res.json(user);
     }catch{
       throw new Error('User not found');
     }

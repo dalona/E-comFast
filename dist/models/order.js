@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Orders = void 0;
 const sequelize_typescript_1 = require("sequelize-typescript");
 const user_1 = require("./user");
-const productCart_1 = require("./productCart");
+//import { ProductCart } from "./productCart";
 let Orders = class Orders extends sequelize_typescript_1.Model {
 };
 exports.Orders = Orders;
@@ -36,14 +36,6 @@ __decorate([
     (0, sequelize_typescript_1.BelongsTo)(() => user_1.User),
     __metadata("design:type", user_1.User)
 ], Orders.prototype, "user", void 0);
-__decorate([
-    (0, sequelize_typescript_1.ForeignKey)(() => productCart_1.ProductCart),
-    (0, sequelize_typescript_1.Column)({
-        type: sequelize_typescript_1.DataType.INTEGER,
-        allowNull: false,
-    }),
-    __metadata("design:type", Number)
-], Orders.prototype, "productCartId", void 0);
 __decorate([
     (0, sequelize_typescript_1.Column)({
         type: sequelize_typescript_1.DataType.FLOAT,

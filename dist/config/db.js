@@ -8,6 +8,6 @@ const sequelize = new sequelize_typescript_1.Sequelize({
     username: 'urux8rc5vxvmxfly',
     password: 'dCQNesYGv8aeaG5enHcv',
     database: 'bhkb9w4c1xbdtibyzj8g',
-    models: [models_1.User, models_1.Product], // Añade todos tus modelos aquí
+    models: [models_1.User, models_1.Product, models_1.Orders], // Añade todos tus modelos aquí
 });
 exports.default = sequelize;

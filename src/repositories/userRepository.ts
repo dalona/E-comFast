@@ -1,11 +1,11 @@
 import { injectable } from 'tsyringe';
 import { User } from '../models/user';
-import { Product } from '../models';
+import { Product, Role } from '../models';
 
 @injectable()
 export default class UserRepository {
     async findAll() {
-        return await User.findAll({attributes: ['id', 'name','email']});
+        return await User.findAll({attributes: ['id', 'name','email','roleId']});
     }
 
     async findById(id: number) {//Puedo cambiar el nombre al metodo, en el return uso los metodos del ORM "Sequelize"

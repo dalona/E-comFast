@@ -4,6 +4,7 @@
 import { Request, Response } from "express";
 import { container } from "tsyringe";
 import OrderService from "../services/orderService";
+import { Product } from "../models";
 
 export default class OrderController {
   static async getAllOrders(req: Request, res: Response) {
@@ -14,11 +15,16 @@ export default class OrderController {
   }
 
   static async getOrderById(req: Request, res: Response) {
-    const productService = container.resolve(OrderService);
-    const product = await productService.getOrderById(
-      parseInt(req.params.id)
-    );
-    res.json(product);
+    try{
+    const orderService = container.resolve(OrderService);
+    const order = await orderService.getOrderById(parseInt(req.params.id));
+    if (!order) {
+      res.status(404).json({ message: "Order not found" });
+      return;
+    }res.json(order);
+  }catch{
+    throw new Error("Order not found");
+  }
   }
 
   static async createOrder(req: Request, res: Response) {
@@ -29,13 +35,8 @@ export default class OrderController {
 
   static async updateOrder(req: Request, res: Response) {
     const orderService = container.resolve(OrderService);
-    const order = await orderService.updateOrders(
-      parseInt(req.params.id),
-      req.body
-    );
-    res
-      .status(200)
-      .json({ message: "Order successfully updated", Orders: order });
+    const order = await orderService.updateOrders(parseInt(req.params.id),req.body);
+    res.status(200).json({ message: "Order successfully updated", Orders: order });
   }
 
   static async deleteOrder(req: Request, res: Response) {

@@ -14,7 +14,7 @@ export class OrderRepository {
     return await Orders.findAll({ attributes: ["id", "total"] });
   }
 
-  async createOrder(Order: CreationAttributes<Orders>) {
+  async createOrder(Order: CreationAttributes<Orders>) {//CreationAttributes<Orders>Es un tipo que represemta los atributos que se pueden pasar a la funcion create de un modelo de Sequelize
     return await Orders.create(Order);
   }
 

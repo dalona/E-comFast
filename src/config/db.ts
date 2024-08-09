@@ -1,5 +1,5 @@
 import { Sequelize } from 'sequelize-typescript';
-import { User, Product } from '../models';//importar models
+import { User, Product, Orders, Role } from '../models';//importar models
 
 const sequelize: Sequelize = new Sequelize({
     dialect: 'mysql',
@@ -7,7 +7,7 @@ const sequelize: Sequelize = new Sequelize({
     username: 'urux8rc5vxvmxfly',
     password: 'dCQNesYGv8aeaG5enHcv',
     database: 'bhkb9w4c1xbdtibyzj8g',
-    models: [User, Product], // Añade todos tus modelos aquí
+    models: [User, Product, Orders,Role], // Añade todos tus modelos aquí
 });
 
 export default sequelize;

@@ -13,7 +13,7 @@ import { User } from "./user";
 
 @Table({
   tableName: "role",
-  timestamps: true, // Si deseas que Sequelize maneje los timestamps automáticamente
+  timestamps: false, // Si deseas que Sequelize maneje los timestamps automáticamente
 })
 export class Role extends Model {
   @PrimaryKey
@@ -21,7 +21,7 @@ export class Role extends Model {
   @Column({
     type: DataType.INTEGER,
   })
-  id!: number;
+  id!: string;
 
   @Column({
     type: DataType.STRING,
@@ -29,6 +29,6 @@ export class Role extends Model {
   })
   name!: string;
 
-  @HasOne(() => User)
+  @HasMany(() => User)
   user!: User[];
 }

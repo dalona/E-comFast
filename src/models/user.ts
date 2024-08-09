@@ -6,8 +6,12 @@ import {
   PrimaryKey,
   AutoIncrement,
   HasMany,
+  ForeignKey,
+  BelongsTo,
 } from "sequelize-typescript";
 import { Product } from './product';
+import { Role } from "./role";
+import { INTEGER } from "sequelize";
 
 @Table({
   tableName: "users",
@@ -38,6 +42,16 @@ export class User extends Model {
     allowNull: false,
   })
   password!: string;
+
+
+@ForeignKey(() => Role )
+  @Column({
+    type: DataType.INTEGER,
+    allowNull: false,
+  })
+  roleId!: number;
+@BelongsTo(() => Role)
+role! : Role;
 
   @HasMany(() => Product)
   products!: Product[];
